@@ -1,0 +1,33 @@
+enum categoryEnum {
+    Shirts
+    Pants
+    Jeans
+    Jackets
+    Sweaters
+    Accessories
+    Clothes
+    Shoes
+}
+
+type Product {
+    id: Int!
+    productCategory: categoryEnum!
+    productName: String!
+    productPrice: Float
+    productImageUrl: String
+}
+
+input ProductInputs {
+    productCategory: categoryEnum!
+    productName: String!
+    "Optional, if not supplied, will be set to 'New'"
+    productPrice: Float
+    productImageUrl: String
+}
+### Top Level Declarations ###
+type Mutation {
+    addProduct(product: ProductInputs!): Product!
+}
+type Query {
+    productList: [Product!]!
+}
